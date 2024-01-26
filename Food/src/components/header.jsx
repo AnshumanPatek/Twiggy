@@ -1,19 +1,18 @@
-// import {'logo.jpg'} from "./assets";
+import logo from '../assets/logo.jpg'
 
 const Header =()=>{
     return(
-      <div className = "Header">
-      <div className = "logo-container">
-      <img className = "logo" src="/Food/assets/logo.jpg" alt="logo" />
-
+      <div className = "Header flex justify-between px-10">
+      <div className = "logo-container ">
+      <img className = "logo w-20 h-20"  src={logo} alt="logo" />
       </div>
 
       <div className="nav-items">
-      <ul>
+      <ul className='flex w-full gap-4'>
         <li>Home</li>
         <li>About Us</li>
         <li>Contact Us</li>
-        <li>Cart</li>
+        <li>Login</li>
       </ul>
 
       </div>
