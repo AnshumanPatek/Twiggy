@@ -1,3 +1,3 @@
 # Twiggy
 
-Anshuman Patek and vicky
+Anshu and vicky
