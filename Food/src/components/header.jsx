@@ -2,7 +2,7 @@ import logo from '../assets/logo.jpg'
 
 const Header =()=>{
     return(
-      <div className = "Header flex justify-between px-10">
+      <div className = "Header flex justify-between px-10 bg-red-500">
       <div className = "logo-container ">
       <img className = "logo w-20 h-20"  src={logo} alt="logo" />
       </div>
