@@ -1,5 +1,9 @@
-
 import './App.css'
+import Header from './components/Header'
+
+
+
+
 
 function App() {
   
@@ -8,6 +12,7 @@ function App() {
     <>
       
       <h1>This is food Ordering website</h1>
+      <Header/>
     
     </>
   )
