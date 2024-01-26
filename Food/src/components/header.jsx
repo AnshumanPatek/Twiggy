@@ -1,11 +1,10 @@
-import React from "react";
-
+// import {'logo.jpg'} from "./assets";
 
 const Header =()=>{
     return(
       <div className = "Header">
       <div className = "logo-container">
-      <img className = "logo" src="Food\src\assets\logo.jpg" alt="this logo" />
+      <img className = "logo" src="/Food/assets/logo.jpg" alt="logo" />
 
       </div>
 
