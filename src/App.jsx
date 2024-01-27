@@ -1,12 +1,14 @@
 import ReactDOM from "react-dom/client";
+import "./index.css";
 import Header from "./components/Header";
+import Body from "./components/Body";
 
 const AppLayout = () => {
-  // console.log("vicky");
   return (
     <>
-      <div className="App">
+      <div className="m-2">
         <Header />
+        <Body />
       </div>
     </>
   );
