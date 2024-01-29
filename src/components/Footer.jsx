@@ -1,10 +1,9 @@
-const currYear = new Date().getFullYear();
-
 const Footer = () => {
   return (
-    <footer>
-      <p>Copyright {currYear}</p>
-    </footer>
+    <div className="bg-pink-600 flex justify-center w-22 h-44 items-center">
+      <p>Footer Hai</p>
+    </div>
   );
 };
+
 export default Footer;

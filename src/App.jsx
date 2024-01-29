@@ -1,18 +1,25 @@
+import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
+// import "./App.css";
 import Header from "./components/Header";
 import Body from "./components/Body";
+import Footer from "./components/Footer";
+import RestaurantCard from "./components/ReataurantCard";
 
-const AppLayout = () => {
+function App() {
   return (
-    <>
-      <div className="m-2">
-        <Header />
-        <Body />
-      </div>
-    </>
+    <div className="app mt-0 m-auto p-0  box-border">
+      <Header />
+      <Body />
+      {/* <RestaurantCard /> */}
+      <Footer />
+    </div>
   );
-};
+}
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<AppLayout />);
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
