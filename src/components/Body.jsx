@@ -3,10 +3,16 @@ import { useState } from "react";
 import Shimmer from "../components/Shimmer";
 // import { useEffect } from "react";
 import RestaurantCard from "./ReataurantCard";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Body = () => {
   const [listOfRes, setListOfRes] = useState(resList);
   const [SearchText, setSearchText] = useState("");
+  const onlineStatus = useOnlineStatus();
+
+  if (onlineStatus === false)
+    return <h1>You are Offline! Plz check your Internet Connection</h1>;
+
   // const [filteredRes, setFilteredRes] = useState([]);
 
   //   useEffect(() => {
