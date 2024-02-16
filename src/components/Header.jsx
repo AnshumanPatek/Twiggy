@@ -1,53 +1,73 @@
 // import { LOGO_URL } from "../utils/constants";
+import { FaShoppingCart } from "react-icons/fa";
+import { GoDotFill } from "react-icons/go";
+
 import Logo from "../assets/logo.jpg";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { RiSignalWifiOffLine } from "react-icons/ri";
-import { MdOutlineOnlinePrediction } from "react-icons/md";
 
 import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Header = () => {
   const [btnReact, setBtnReact] = useState("Login");
-
   const onlineStatus = useOnlineStatus();
 
   return (
     <>
-      <header className="flex justify-between  m-[5px] flex-wrap px-[20px ] border-2 border-solid  items-center">
-        <div className="logo ">
-          <img
-            src={Logo}
-            alt="App_Logo"
-            className=" shadow hover:shadow-2xl w-[100px] cursor-pointer m-2 rounded-[20px] "
-          />
+      <header
+        className="flex text-light-text-color fixed top-0 left-0 overflow-y-hidden justify-between shadow-2xl items-center
+       rounded-mg w-[100vw] z-[999] bg-header-bg-color sm:bg-yellow-400 lg:bg-green-200  font-[500]"
+      >
+        <div className="logo-container ">
+          <Link to="/">
+            <img
+              src={Logo}
+              alt="App_Logo"
+              className="w-24 rounded-md mx-6 mt-2 shadow hover:shadow-2xl  cursor-pointer "
+            />
+          </Link>
         </div>
 
-        <div>
-          <ul className=" flex text-[24px] list-none shadow hover:shadow-2xl rounded-md p-4 m-4">
-            <Link to="/">
-              <li className="p-4  cursor-pointer font-bold hover:text-blue-600 ">
+        <div className="flex items-center">
+          <ul className=" flex  p-4 m-4">
+            <li className="p-4">Online Status: {onlineStatus ? "✅" : "⛔"}</li>
+            <li className="p-4  cursor-pointer font-bold hover:text-blue-600 ">
+              <Link to="/" className="links">
                 Home
-              </li>
-            </Link>
-            <Link to="/about">
-              <li className="p-4 cursor-pointer font-bold hover:text-blue-600 ">
+              </Link>
+            </li>
+
+            <li className="p-4 cursor-pointer font-bold hover:text-blue-600 ">
+              <Link to="/about" className="links">
                 About
-              </li>
-            </Link>
-            <Link to="/contact">
-              <li className="p-4 cursor-pointer font-bold hover:text-blue-600">
-                Contact Us
-              </li>
-            </Link>
-            <Link to="/cart">
-              <li className="p-4 cursor-pointer font-bold hover:text-blue-600">
-                Cart
-              </li>
-            </Link>
+              </Link>
+            </li>
+
+            <li className="p-4 cursor-pointer font-bold hover:text-blue-600 ">
+              <Link to="/contact" className="links">
+                Contact
+              </Link>
+            </li>
+
+            <li className="p-4 cursor-pointer font-bold hover:text-blue-600 ">
+              <Link to="/Grocery" className="links">
+                grocery
+              </Link>
+            </li>
+
+            <li
+              className="m-4 p-1 cursor-pointer 
+              font-extrabold hover:text-blue-600 "
+            >
+              <Link to="/cart">
+                <span className="text-red-500  text-[25px]">
+                  <FaShoppingCart />
+                </span>
+              </Link>
+            </li>
 
             <button
-              className="bg-pink-500 hover:bg-blue-300 rounded-xl px-2 py-2 font-bold cursor-pointer"
+              className="loginBtn  flex items-center hover:shadow-3xl rounded-lg px-2 py-2 font-bold cursor-pointer"
               onClick={() => {
                 btnReact === "Login"
                   ? setBtnReact("Logout")
@@ -56,20 +76,10 @@ const Header = () => {
               }}
             >
               {btnReact}
+              <span className="text-green-600">
+                <GoDotFill />
+              </span>
             </button>
-
-            <div className="px-4">
-              <ul>
-                <li className="flex p-4">
-                  OnlineStatus:
-                  {onlineStatus ? (
-                    <MdOutlineOnlinePrediction className="bg-green-300 size-[30px] " />
-                  ) : (
-                    <RiSignalWifiOffLine className="bg-red-500 size-[30px]" />
-                  )}
-                </li>
-              </ul>
-            </div>
           </ul>
         </div>
       </header>
