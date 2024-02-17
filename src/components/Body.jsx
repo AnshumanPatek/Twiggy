@@ -30,7 +30,7 @@ const Body = () => {
     );
   };
 
-  console.log(listOfRes);
+  // console.log(listOfRes);
 
   if (onlineStatus === false)
     return (
@@ -99,7 +99,6 @@ const Body = () => {
             key={restaurant.info.id}
             to={"/restaurants/" + restaurant.info.id}
           >
-            {" "}
             <RestaurantCard resData={restaurant} />
           </Link>
         ))}

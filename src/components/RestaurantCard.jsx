@@ -1,6 +1,7 @@
 import { CDN_URL } from "../utils/constants";
 import { AiOutlineStar } from "react-icons/ai";
 import { FiClock } from "react-icons/fi";
+import Contact from "./Contact";
 
 const RestaurantCard = (props) => {
   const { resData } = props;

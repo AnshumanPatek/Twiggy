@@ -1,6 +1,6 @@
-// import { LOGO_URL } from "../utils/constants";
 import { FaShoppingCart } from "react-icons/fa";
 import { GoDotFill } from "react-icons/go";
+import { useSelector} from "react-redux";
 
 import Logo from "../assets/logo.jpg";
 import { useState } from "react";
@@ -11,6 +11,9 @@ import useOnlineStatus from "../utils/useOnlineStatus";
 const Header = () => {
   const [btnReact, setBtnReact] = useState("Login");
   const onlineStatus = useOnlineStatus();
+
+  const cartItems = useSelector((store) => store.cart.items);
+  console.log(cartItems);
 
   return (
     <>
@@ -63,6 +66,7 @@ const Header = () => {
                 <span className="text-red-500  text-[25px]">
                   <FaShoppingCart />
                 </span>
+                [{cartItems.lenght===1?`${cartItems.length}` : `${cartItems.length}`}]
               </Link>
             </li>
 

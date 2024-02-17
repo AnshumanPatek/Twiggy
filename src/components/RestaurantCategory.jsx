@@ -1,6 +1,5 @@
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import ItemList from "./ItemList";
-import { useState } from "react";
 
 const RestaurantCategory = ({ data, showItems, setShowIndex }) => {
   // const [showItems, setShowItems] = useState();

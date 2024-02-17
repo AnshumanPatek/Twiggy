@@ -1,11 +1,16 @@
 import { CDN_URL } from "../utils/constants";
 import { PiSquareLogoFill } from "react-icons/pi";
+import { useDispatch } from "react-redux";
+import { addItem, removeItem, clearCart } from "../utils/cartSlice";
 
 const ItemList = ({ items }) => {
-  console.log(items);
+  // console.log(items);
   // const {imageId}=items[0]?.card?.info;
 
-
+  const dispatch = useDispatch();
+  const handleAddItem = (item) => {
+    dispatch(addItem(item));
+  };
 
   return (
     <div>
@@ -37,7 +42,10 @@ const ItemList = ({ items }) => {
           </div>
           <div className="w-3/12">
             <div className="absolute">
-              <button className="p-2 mx-16 text-white font-bold rounded-md bg-green-500">
+              <button
+                onClick={() => handleAddItem(item)}  //handleAddItem(item):- here call the fn
+                className="p-2 mx-16 text-white font-bold rounded-md bg-green-500"
+              >
                 ADD +
               </button>
             </div>

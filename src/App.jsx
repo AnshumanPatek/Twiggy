@@ -1,26 +1,27 @@
-// import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-// import "./App.css";
 import Header from "./components/Header";
 import Error from "./components/Error";
 import Footer from "./components/Footer";
 import Body from "./components/Body";
 import About from "./components/About";
+import Cart from "./components/Cart";
 import Contact from "./components/Contact";
+import { Provider } from "react-redux";
 import RestaurantMenu from "./components/RestaurantMenu";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
-// import RestaurantCard from "./components/RestaurantCard";
-// import RestaurantCard from "./components/ReataurantCard";
+import appStore from "./utils/appStore";
 
 function App() {
   return (
-    <div className="app mt-0 m-auto p-0 overflow-x-hidden box-border">
-      <Header />
-      <Outlet />
-      {/* <Body/> */}
-      <Footer />
-    </div>
+    <Provider store={appStore}>
+      <div className="app mt-0 m-auto p-0 overflow-x-hidden box-border">
+        <Header />
+        <Outlet />
+        {/* <Body/> */}
+        <Footer />
+      </div>
+    </Provider>
   );
 }
 
@@ -40,6 +41,10 @@ const AppRouter = createBrowserRouter([
       {
         path: "/contact",
         element: <Contact />,
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
       },
       // {
       //   path: "/grocery",
