@@ -1,19 +1,21 @@
 import { CDN_URL } from "../utils/constants";
 import { PiSquareLogoFill } from "react-icons/pi";
 import { useDispatch } from "react-redux";
-import { addItem, removeItem, clearCart } from "../utils/cartSlice";
+import { addToCartItem } from "../utils/cartSlice";
+// import { useNavigate } from "react-router-dom";
 
 const ItemList = ({ items }) => {
-  // console.log(items);
-  // const {imageId}=items[0]?.card?.info;
-
   const dispatch = useDispatch();
+  console.log(items);
+  // const navigateTo = useNavigate();
+
   const handleAddItem = (item) => {
-    dispatch(addItem(item));
+    dispatch(addToCartItem(item));
+    // navigateTo("/cart");
   };
 
   return (
-    <div>
+    <div className="bg-pink-300">
       {items.map((item) => (
         <div
           key={item.card.info.id}
@@ -23,7 +25,11 @@ const ItemList = ({ items }) => {
             <span className="font-bold">{item.card.info.name}</span>
             <br />
             <div className="flex items-center">
-              <span className="font-bold ">₹{item.card.info.price / 100} </span>
+              <span className="font-bold ">
+                ₹
+                {item.card.info.defaultPrice / 100 ||
+                  item.card.info.price / 100}{" "}
+              </span>
 
               {item.card.info.itemAttribute.vegClassifier == "VEG" ? (
                 <span className="px-3 text-green-600">
@@ -35,24 +41,23 @@ const ItemList = ({ items }) => {
                 </span>
               )}
             </div>
-
+            <div className=" ">
+              <button
+                onClick={() => handleAddItem(item)} //handleAddItem(item):- here call the fn
+                className="p-1 text-white font-bold rounded-md bg-green-500"
+              >
+                Add
+              </button>
+            </div>
             <p className="text-sm text-gray-600 m-2">
               {item.card.info.description}
             </p>
           </div>
           <div className="w-3/12">
-            <div className="absolute">
-              <button
-                onClick={() => handleAddItem(item)}  //handleAddItem(item):- here call the fn
-                className="p-2 mx-16 text-white font-bold rounded-md bg-green-500"
-              >
-                ADD +
-              </button>
-            </div>
             <img
               src={CDN_URL + item?.card?.info?.imageId}
               alt={item.card.info.name}
-              className="w-full rounded-md"
+              className="w-full rounded-md  "
             />
           </div>
         </div>

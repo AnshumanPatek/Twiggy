@@ -8,7 +8,7 @@
 // =================  S-1 ==========
 import { configureStore } from "@reduxjs/toolkit";
 import cartReducer  from "./cartSlice"
-import { addItem } from "./cartSlice";
+import { addToCartItem } from "./cartSlice";
 
 const appStore = configureStore({
 

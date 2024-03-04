@@ -11,11 +11,15 @@ import { Provider } from "react-redux";
 import RestaurantMenu from "./components/RestaurantMenu";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import appStore from "./utils/appStore";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css"
+import AddToCart from "./components/AddToCart";
 
 function App() {
   return (
     <Provider store={appStore}>
       <div className="app mt-0 m-auto p-0 overflow-x-hidden box-border">
+        <ToastContainer/>
         <Header />
         <Outlet />
         {/* <Body/> */}
@@ -44,7 +48,7 @@ const AppRouter = createBrowserRouter([
       },
       {
         path: "/cart",
-        element: <Cart />,
+        element: <AddToCart/>,
       },
       // {
       //   path: "/grocery",
