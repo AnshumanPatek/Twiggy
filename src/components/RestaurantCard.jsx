@@ -1,11 +1,12 @@
 import { CDN_URL } from "../utils/constants";
 import { AiOutlineStar } from "react-icons/ai";
 import { FiClock } from "react-icons/fi";
+import Contact from "./Contact";
 
 const RestaurantCard = (props) => {
   const { resData } = props;
 
-  const { cloudinaryImageId, name, cuisines, avgRating, costForTwo } =
+  const { cloudinaryImageId, name,locality, cuisines, avgRating, costForTwo } =
     resData?.info;
 
   // console.log(resData?.info);
@@ -20,6 +21,9 @@ const RestaurantCard = (props) => {
       <div>
         <h2 className="block font-bold pt-4 text-xl text-light-text-color	">
           {name}
+        </h2>
+        <h2 className="block  text-light-text-color	">
+          {locality}
         </h2>
         {/* cuisines is like array sojoin() */}
         <div className=" max-w-min break-words ">

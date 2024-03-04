@@ -1,4 +1,4 @@
-import { SwiggyResList } from "../utils/swiggyMockData";
+import { SwiggyResList } from "../utils/swiggyStaticData";
 import { useState, useEffect } from "react";
 // import { SWIGGY_URL } from "../utils/constants";
 import Shimmer from "../components/Shimmer";
@@ -30,7 +30,7 @@ const Body = () => {
     );
   };
 
-  console.log(listOfRes);
+  // console.log(SwiggyResList);
 
   if (onlineStatus === false)
     return (
@@ -66,7 +66,7 @@ const Body = () => {
                 res.info.name.toLowerCase().includes(SearchText.toLowerCase())
               );
               setFilteredRes(filteredResOfList);
-              console.log(filteredResOfList);
+              // console.log(filteredResOfList);
             }}
           >
             Search
@@ -82,7 +82,7 @@ const Body = () => {
             );
 
             setFilteredRes(filteredList);
-            console.log(filteredList);
+            // console.log(filteredList);
           }}
         >
           Top Rated Restaurants
@@ -99,7 +99,6 @@ const Body = () => {
             key={restaurant.info.id}
             to={"/restaurants/" + restaurant.info.id}
           >
-            {" "}
             <RestaurantCard resData={restaurant} />
           </Link>
         ))}

@@ -1,7 +1,7 @@
-// import { LOGO_URL } from "../utils/constants";
 import { FaShoppingCart } from "react-icons/fa";
 import { GoDotFill } from "react-icons/go";
-
+import { useSelector} from "react-redux";
+import { CgClose, CgMenu } from "react-icons/cg";
 import Logo from "../assets/logo.jpg";
 import { useState } from "react";
 import { Link } from "react-router-dom";
@@ -12,25 +12,28 @@ const Header = () => {
   const [btnReact, setBtnReact] = useState("Login");
   const onlineStatus = useOnlineStatus();
 
+  const cartItems = useSelector((store) => store.cart.items);
+  // console.log(cartItems);
+
   return (
     <>
       <header
         className="flex text-light-text-color fixed top-0 left-0 overflow-y-hidden justify-between shadow-2xl items-center
-       rounded-mg w-[100vw] z-[999] bg-header-bg-color sm:bg-yellow-400 lg:bg-green-200  font-[500]"
+       rounded-mg w-[100vw] h-[12%] z-[999] bg-header-bg-color sm:bg-yellow-400 lg:bg-green-200  font-[500]"
       >
-        <div className="logo-container ">
+        <div className="logo-container  w-[70px] ">
           <Link to="/">
             <img
               src={Logo}
               alt="App_Logo"
-              className="w-24 rounded-md mx-6 mt-2 shadow hover:shadow-2xl  cursor-pointer "
+              className="rounded-md  mx-[50%] shadow hover:shadow-2xl  cursor-pointer "
             />
           </Link>
         </div>
 
         <div className="flex items-center">
           <ul className=" flex  p-4 m-4">
-            <li className="p-4">Online Status: {onlineStatus ? "✅" : "⛔"}</li>
+            {/* <li className="p-4">Online Status: {onlineStatus ? "✅" : "⛔"}</li> */}
             <li className="p-4  cursor-pointer font-bold hover:text-blue-600 ">
               <Link to="/" className="links">
                 Home
@@ -49,11 +52,11 @@ const Header = () => {
               </Link>
             </li>
 
-            <li className="p-4 cursor-pointer font-bold hover:text-blue-600 ">
+            {/* <li className="p-4 cursor-pointer font-bold hover:text-blue-600 ">
               <Link to="/Grocery" className="links">
                 grocery
               </Link>
-            </li>
+            </li> */}
 
             <li
               className="m-4 p-1 cursor-pointer 
@@ -63,16 +66,21 @@ const Header = () => {
                 <span className="text-red-500  text-[25px]">
                   <FaShoppingCart />
                 </span>
+                [
+                {cartItems.length === 1
+                  ? `${cartItems.length}`
+                  : `${cartItems.length}`}
+                ]
               </Link>
             </li>
 
             <button
-              className="loginBtn  flex items-center hover:shadow-3xl rounded-lg px-2 py-2 font-bold cursor-pointer"
+              className="loginBtn  flex items-center hover:shadow-3xl rounded-lg font-bold cursor-pointer"
               onClick={() => {
                 btnReact === "Login"
                   ? setBtnReact("Logout")
                   : setBtnReact("Login");
-                console.log(btnReact);
+                // console.log(btnReact);
               }}
             >
               {btnReact}
@@ -80,6 +88,16 @@ const Header = () => {
                 <GoDotFill />
               </span>
             </button>
+
+            {/* <div className="sm:hidden inline-block z-50 border-2 border-red-500 cursor-pointer text-black font-extrabold">
+              <span className="extrabold">
+                <CgMenu />
+              </span>
+
+              <span>
+                <CgClose />
+              </span>
+            </div> */}
           </ul>
         </div>
       </header>

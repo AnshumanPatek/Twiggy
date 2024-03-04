@@ -1,6 +1,5 @@
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import ItemList from "./ItemList";
-import { useState } from "react";
 
 const RestaurantCategory = ({ data, showItems, setShowIndex }) => {
   // const [showItems, setShowItems] = useState();
@@ -15,7 +14,7 @@ const RestaurantCategory = ({ data, showItems, setShowIndex }) => {
   };
 
   return (
-    <div className="col-start-2 col-end-4">
+    <div className="col-start-2 bg-green-300 col-end-4">
       {/* Accordion Header */}
 
       <div className="p-4 rounded-sm mx-auto my-4 shadow-xl bg-white ">

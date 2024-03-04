@@ -15,6 +15,7 @@ const RestaurantMenu = () => {
   // console.log(resId);
 
   const resInfo = useRestaurantMenu(resId);
+  console.log(resInfo);
 
   // for showitem one at a time(default 1st item show)
   const [showIndex, setShowIndex] = useState(null);
@@ -25,17 +26,21 @@ const RestaurantMenu = () => {
     name,
     cuisines,
     costForTwo,
-    deliveryTime,
     cloudinaryImageId,
+    locality,
     avgRating,
-  } = resInfo?.cards[0]?.card?.card?.info;
+  } = resInfo?.data?.cards[0]?.card?.card?.info;
 
   const { itemCards } =
-    resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card;
+    resInfo?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card;
   // console.log(itemCards);
-  // console.log(resInfo);
+  // console.log(
+  //   MenuResList1[0]?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR
+  //     ?.cards[2]?.card?.card
+  // );
+
   const Categories =
-    resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
+    resInfo?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
       (c) =>
         c.card?.card?.["@type"] ===
         "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
@@ -46,7 +51,7 @@ const RestaurantMenu = () => {
   //   resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card;
 
   return (
-    <div className="menu grid grid-cols-4 m-3">
+    <div className="menu bg-red-200 grid grid-cols-4 m-3">
       <header className="flex col-start-2 col-end-4 mt-40 shadow-2xl  bg-gray-100 justify-between items-center menu-header">
         <div className=" menu-header-left">
           <img
@@ -59,6 +64,9 @@ const RestaurantMenu = () => {
           <div className="top">
             <h1 className="font-bold pt-4 text-xl text-light-text-color">
               {name}
+            </h1>
+            <h1 className="text-xl text-light-text-color">
+              {locality}
             </h1>
             <h3 className="max-w-min break-words">{cuisines.join(",")}</h3>
           </div>
@@ -76,7 +84,6 @@ const RestaurantMenu = () => {
 
             <h4 className="itemPrice">
               <span className="w-14 block font-bold">₹ {costForTwo / 100}</span>
-            
             </h4>
           </span>
 
@@ -85,7 +92,8 @@ const RestaurantMenu = () => {
               <FiClock />
             </span>
             <span className="font-bold">
-              {resInfo?.cards[0]?.card?.card?.info?.sla?.deliveryTime} Minutes
+              {resInfo?.data?.cards[0]?.card?.card?.info?.sla?.deliveryTime}{" "}
+              Minutes
             </span>
           </h4>
         </div>
