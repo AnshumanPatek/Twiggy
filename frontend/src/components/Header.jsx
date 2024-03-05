@@ -1,16 +1,12 @@
 import { FaShoppingCart } from "react-icons/fa";
 import { GoDotFill } from "react-icons/go";
-import { useSelector} from "react-redux";
-import { CgClose, CgMenu } from "react-icons/cg";
+import { useSelector } from "react-redux";
 import Logo from "../assets/logo.jpg";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-import useOnlineStatus from "../utils/useOnlineStatus";
-
 const Header = () => {
   const [btnReact, setBtnReact] = useState("Login");
-  const onlineStatus = useOnlineStatus();
 
   const cartItems = useSelector((store) => store.cart.items);
   // console.log(cartItems);
@@ -19,14 +15,14 @@ const Header = () => {
     <>
       <header
         className="flex text-light-text-color fixed top-0 left-0 overflow-y-hidden justify-between shadow-2xl items-center
-       rounded-mg w-[100vw] h-[12%] z-[999] bg-header-bg-color sm:bg-yellow-400 lg:bg-green-200  font-[500]"
+       rounded-mg w-[100vw] h-[12vw] lg:h-[7vw] md:h-[10vw] z-[999] bg-header-bg-color  font-[500]"
       >
-        <div className="logo-container  w-[70px] ">
+        <div className="logo-container   w-[16vw]">
           <Link to="/">
             <img
               src={Logo}
               alt="App_Logo"
-              className="rounded-md  mx-[50%] shadow hover:shadow-2xl  cursor-pointer "
+              className=" h-[20vw] lg:h-[11vw] mx-[50%] cursor-pointer "
             />
           </Link>
         </div>

@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 // import ItemList from "./ItemList";
 import { clearCart } from "../utils/cartSlice";
-import { FaArrowLeft } from "react-icons/fa";
+import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import "../App.css";
 
@@ -30,16 +30,18 @@ const AddToCart = () => {
       {cartItems.length === 0 ? (
         <div className="empty-cart pt-3">
           <h1>Cart is Empty.Plz Add some Items to the Cart</h1>
-          <div className="start-shopping">
-            <Link to="/">
+          <button className=" start-shopping font-bold shadow-xl  text-xl text-white bg-red-500 rounded-md p-2 m-2">
+            <Link to="/" className="">
               <span>Continue Shopping</span>
-              <FaArrowLeft />
+              <span className="flex justify-between p-2 items-center">
+                <FaArrowLeft />
+                <FaArrowRight />
+              </span>
             </Link>
-          </div>
+          </button>
         </div>
       ) : (
-          <Cart items={cartItems} />
-          
+        <Cart items={cartItems} />
       )}
     </div>
   );

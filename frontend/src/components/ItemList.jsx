@@ -15,7 +15,7 @@ const ItemList = ({ items }) => {
   };
 
   return (
-    <div className="bg-pink-300">
+    <div className="">
       {items.map((item) => (
         <div
           key={item.card.info.id}
@@ -32,11 +32,11 @@ const ItemList = ({ items }) => {
               </span>
 
               {item.card.info.itemAttribute.vegClassifier == "VEG" ? (
-                <span className="px-3 text-green-600">
+                <span className="px-3 text-xl text-green-600">
                   <PiSquareLogoFill />
                 </span>
               ) : (
-                <span className="px-3 font-extrabold text-red-600">
+                <span className="px-3 font-extrabold text-xl text-red-600">
                   <PiSquareLogoFill />
                 </span>
               )}
@@ -44,12 +44,12 @@ const ItemList = ({ items }) => {
             <div className=" ">
               <button
                 onClick={() => handleAddItem(item)} //handleAddItem(item):- here call the fn
-                className="p-1 text-white font-bold rounded-md bg-green-500"
+                className="p-1 text-white font-bold rounded-md bg-green-500 w-16"
               >
                 Add
               </button>
             </div>
-            <p className="text-sm text-gray-600 m-2">
+            <p className="text-sm text-gray-60 m-2 hidden  md:block ">
               {item.card.info.description}
             </p>
           </div>
@@ -57,7 +57,7 @@ const ItemList = ({ items }) => {
             <img
               src={CDN_URL + item?.card?.info?.imageId}
               alt={item.card.info.name}
-              className="w-full rounded-md  "
+              className="w-full rounded-md h-[13vw] "
             />
           </div>
         </div>
