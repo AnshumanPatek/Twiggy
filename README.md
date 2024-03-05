@@ -1,6 +1,4 @@
 
-https://spicy-meal-food-app-13c828.netlify.app/
-
 
 # Twiggy
 This is Food Delivery App
