@@ -5,29 +5,18 @@ import { FaSquareGithub } from "react-icons/fa6";
 import { CgMail } from "react-icons/cg";
 import { Link } from "react-router-dom";
 
-const Resume_File = "http://localhost:5173/contact/sem-4.pdf";
-
 const Contact = () => {
-  const downloadFileAtURL = (url) => {
-    const fileName = url.split("/").pop();
-    const aTag = document.createElement("a");
-    aTag.href = url;
-    aTag.setAttribute("download", fileName);
-    document.body.appendChild(aTag);
-    aTag.click();
-    aTag.remove();
-  };
   return (
     <div>
       <div className="flex lg:h-[55vh] h-[68vh] sm:h-[63vh] items-center justify-center">
-        <button 
-          onClick={() => {
-            downloadFileAtURL(Resume_File);
-          }}
-          className="font-bold shadow-xl text-[35px] sm:text-[45px] md:text-[50px] text-white bg-red-500 rounded-md p-2 m-2"
+        <Link
+          to="https://drive.google.com/file/d/1MaxCdh8haE3rk1toIT7xni0E-L3CQ_0j/view?usp=sharing"
+          target="_blank"
         >
-          Download Resume
-        </button>
+          <button className="font-bold shadow-xl text-[35px] sm:text-[45px] md:text-[50px] text-white bg-red-500 rounded-md p-2 m-2">
+            Download Resume
+          </button>
+        </Link>
       </div>
       <div className="flex  text-[60px] flex-wrap justify-evenly items-center m-2">
         <Link to="https://mail.ksingh79798@gmail.com" target="_blank">
