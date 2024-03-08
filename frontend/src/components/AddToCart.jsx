@@ -18,19 +18,21 @@ const AddToCart = () => {
   };
 
   return (
-    <div className="mt-[200px] text-center m-4 p-4">
-      <h1 className="font-bold text-2xl">Shopping Cart</h1>
-      {/* <button
+    <>
+      <div className="text-center m-4 p-4">
+        <h1 className="font-bold text-2xl">Shopping Cart</h1>
+        {/* <button
           className="font-bold text-2xl bg-red-500 text-white rounded-md p-2 m-2"
           onClick={handelClearCart}
         >
           Clear Cart
         </button> */}
+      </div>
 
       {cartItems.length === 0 ? (
         <div className="empty-cart pt-3">
           <h1>Cart is Empty.Plz Add some Items to the Cart</h1>
-          <button className=" start-shopping font-bold shadow-xl  text-xl text-white bg-red-500 rounded-md p-2 m-2">
+          <button className=" start-shopping font-bold shadow-xl  text-xl text-white  rounded-md p-2 m-2">
             <Link to="/" className="">
               <span>Continue Shopping</span>
               <span className="flex justify-between p-2 items-center">
@@ -43,7 +45,7 @@ const AddToCart = () => {
       ) : (
         <Cart items={cartItems} />
       )}
-    </div>
+    </>
   );
 };
 

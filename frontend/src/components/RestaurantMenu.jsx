@@ -53,16 +53,16 @@ const RestaurantMenu = () => {
 
   return (
     <div className="menu ">
-      <div className="grid grid-cols-12 m-3">
-        <header className="md:flex md:justify-around grid col-start-3 col-span-8 mt-40 shadow-xl rounded-md  bg-gray-200 justify-center items-center menu-header">
+      <div className="grid grid-cols-12  m-3">
+        <header className="md:flex  md:justify-around grid  col-start-3 col-span-8 mt-4 shadow-xl rounded-md  bg-gray-200 justify-center items-center menu-header">
           <div className=" menu-header-left flex justify-center md:col-start-3 md:col-end-8">
             <img
-              className="rounded-xl  h-[160px] w-[250px] lg:h-[16vw] md:h-[22vw] box-content overflow-clip  md:w-full"
+              className="rounded-xl w-[180px] h-[150px] mt-1 lg:h-[16vw] md:h-[22vw] box-content overflow-clip  md:w-full"
               src={CDN_URL + cloudinaryImageId}
               alt="Restaurent Info"
             />
           </div>
-          <div className="p-3 m-4 menu-header-right">
+          <div className="p-3  menu-header-right">
             <div className="top">
               <h1 className="font-bold pt-4 text-xl text-light-text-color">
                 {name}
@@ -89,8 +89,8 @@ const RestaurantMenu = () => {
               </h4>
             </span>
 
-            <h4 className="time flex justify-start mt-1 gap-3 items-center">
-              <span className="w-28 p-1 h-10 bg-gray-500 text-white rounded-lg">
+            <h4 className="time flex mt-1 gap-3 items-center">
+              <span className="w-22 p-1 h-10 bg-gray-500 text-white rounded-lg">
                 {totalRatingsString}
               </span>
               <span className="icons">

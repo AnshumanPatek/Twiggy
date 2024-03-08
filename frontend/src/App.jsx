@@ -2,7 +2,6 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import Header from "./components/Header";
 import Error from "./components/Error";
-import Footer from "./components/Footer";
 import Body from "./components/Body";
 import About from "./components/About";
 import Cart from "./components/Cart";
@@ -23,7 +22,6 @@ function App() {
         <Header />
         <Outlet />
         {/* <Body/> */}
-        <Footer />
       </div>
     </Provider>
   );

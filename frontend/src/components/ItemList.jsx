@@ -28,7 +28,7 @@ const ItemList = ({ items }) => {
               <span className="font-bold ">
                 ₹
                 {item.card.info.defaultPrice / 100 ||
-                  item.card.info.price / 100}{" "}
+                  item.card.info.price / 100}
               </span>
 
               {item.card.info.itemAttribute.vegClassifier == "VEG" ? (
@@ -44,7 +44,7 @@ const ItemList = ({ items }) => {
             <div className=" ">
               <button
                 onClick={() => handleAddItem(item)} //handleAddItem(item):- here call the fn
-                className="p-1 text-white font-bold rounded-md bg-green-500 w-16"
+                className="p-1 text-white font-bold rounded-md bg-green-500 w-20"
               >
                 Add
               </button>
